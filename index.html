@@ -682,9 +682,11 @@ const BOOK={tg:'Svetnauka',phone:'+79652296342',phoneText:'+7 (965) 229-63-42',h
 const DEF='Здравствуйте, я с сайта. Хочу записаться. Машина: ';
 /* ОРИЕНТИРЫ (на Картах цен нет, есть только символические 555–999 ₽). Уточнить у владельца!
    Замена стекла 12 000 за фару: из отзыва (стекло 5 000 + работа 7 000, Nissan Qashqai). */
-const CALC=[ // [название, цена за пару, группа: lens = взаимоисключающие]
-  ['Би-лед линзы',25000,'lens'],['Ксенон на LED',25000,'lens'],['Ремонт фар',5000,''],['Полировка фар',3000,'']];
-const FTYPE=['Галоген','Ксенон','Штатный LED'];
+/* Калькулятор: тип фар меняет главную услугу (первая кнопка). 0 = цена по фото, в сумму не входит */
+const FTYPE=[ // [тип фар, главная услуга для него, ориентир за пару]
+  ['Галоген','Би-лед линзы',25000],['Ксенон','Ксенон на LED',25000],['Штатный LED','Улучшение LED',0]];
+const CALC=[ // [ключ, название, цена за пару]; ключ main = главная услуга по типу фар
+  ['main','',0],['rep','Ремонт фар',5000],['pol','Полировка фар',3000],['bron','Бронь плёнкой',4000]];
 /* Прайс: [название, цена (0 = по фото), подпись к цене, вкладка, пояснение] */
 const SVC=[
   ['Би-лед линзы',25000,'за пару','Свет','Линзы в штатные фары: яркий белый свет и чёткая граница.'],
@@ -721,15 +723,19 @@ bk.querySelector('[data-ch=tg]').addEventListener('click',()=>{if(navigator.clip
 
 /* ===== Калькулятор первого экрана ===== */
 const ft=document.getElementById('ftype'),fc=document.getElementById('fchips'),ftot=document.getElementById('ftot');
-let ftype=1,sel=new Set(['Би-лед линзы','Полировка фар']);
-FTYPE.forEach((t,i)=>{const b=document.createElement('button');b.type='button';b.textContent=t;b.setAttribute('role','radio');b.onclick=()=>{ftype=i;drawCalc()};ft.appendChild(b)});
-CALC.forEach(([n,p,g])=>{const b=document.createElement('button');b.type='button';b.textContent=n;b.onclick=()=>{
-  if(sel.has(n))sel.delete(n);else{if(g)CALC.filter(c=>c[2]===g).forEach(c=>sel.delete(c[0]));sel.add(n)}drawCalc()};fc.appendChild(b)});
-function drawCalc(){[...ft.children].forEach((b,i)=>{b.classList.toggle('on',i===ftype);b.setAttribute('aria-checked',i===ftype)});
-  [...fc.children].forEach(b=>{const on=sel.has(b.textContent);b.classList.toggle('on',on);b.setAttribute('aria-pressed',on)});
-  const list=CALC.filter(c=>sel.has(c[0])),sum=list.reduce((s,c)=>s+c[1],0);
-  ftot.textContent=sum?'≈ '+fmt(sum)+' ₽':'Выберите услугу';
-  calcMsg=sum?`Здравствуйте, я с сайта. Хочу узнать цену: ${list.map(c=>c[0].toLowerCase()).join(', ')}. Фары сейчас: ${FTYPE[ftype].toLowerCase()}. На сайте ориентир ≈ ${fmt(sum)} ₽. Машина: `:DEF}
+const fnote=document.getElementById('fnote');
+let ftype=1,sel=new Set(['main','pol']);
+FTYPE.forEach((t,i)=>{const b=document.createElement('button');b.type='button';b.textContent=t[0];b.setAttribute('role','radio');b.onclick=()=>{ftype=i;drawCalc()};ft.appendChild(b)});
+CALC.forEach(([k])=>{const b=document.createElement('button');b.type='button';b.dataset.k=k;b.onclick=()=>{sel.has(k)?sel.delete(k):sel.add(k);drawCalc()};fc.appendChild(b)});
+function drawCalc(){const T=FTYPE[ftype];
+  [...ft.children].forEach((b,i)=>{b.classList.toggle('on',i===ftype);b.setAttribute('aria-checked',i===ftype)});
+  const rows=CALC.map(c=>c[0]==='main'?['main',T[1],T[2]]:c);
+  [...fc.children].forEach((b,i)=>{const on=sel.has(rows[i][0]);b.textContent=rows[i][1];b.classList.toggle('on',on);b.setAttribute('aria-pressed',on)});
+  const list=rows.filter(c=>sel.has(c[0])),sum=list.reduce((s,c)=>s+c[2],0),byPhoto=list.filter(c=>!c[2]);
+  const lc=s=>s[0].toLowerCase()+s.slice(1);
+  ftot.textContent=!list.length?'Выберите услугу':sum?'≈ '+fmt(sum)+' ₽'+(byPhoto.length?' + по фото':''):'По фото';
+  fnote.textContent=!list.length?'можно выбрать несколько':(byPhoto.length?byPhoto.map(c=>lc(c[1])).join(', ')+(sum?': цену назовём по фото, остальное ориентир за пару':': цену назовём по фото фары'):'ориентир за пару фар, точную цену назовём по фото');
+  calcMsg=list.length?`Здравствуйте, я с сайта. Фары сейчас: ${lc(T[0])}. Хочу узнать цену: ${list.map(c=>lc(c[1])).join(', ')}.${sum?` На сайте ориентир ≈ ${fmt(sum)} ₽${byPhoto.length?' плюс '+byPhoto.map(c=>lc(c[1])).join(', ')+' по фото':''}.`:''} Машина: `:DEF}
 drawCalc();
 
 /* ===== Прайс: вкладки ===== */
