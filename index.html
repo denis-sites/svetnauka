@@ -5,16 +5,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#0a0a0b">
-<title>Свет Наука — би-лед линзы, замена ксенона на LED и ремонт фар в Щёлково</title>
+<title>Свет Наука — тюнинг и ремонт фар в Щёлково</title>
 <meta name="description" content="Мастерская автосвета в Щёлково: би-лед линзы, замена ксенона на LED, замена стёкол, ремонт и полировка фар. 4,9 на Яндекс Картах, 93 оценки. Ежедневно 10–19.">
-<meta property="og:title" content="Свет Наука — мастерская автосвета в Щёлково">
-<meta property="og:description" content="Би-лед линзы, замена ксенона на LED, ремонт и полировка фар. 4,9 на Яндекс Картах.">
+<meta property="og:title" content="Свет Наука — тюнинг и ремонт фар в Щёлково">
+<meta property="og:description" content="Если плохо светят фары, это к нам. Би-лед линзы, замена ксенона на LED, ремонт и полировка фар. 4,9 на Яндекс Картах.">
 <meta property="og:image" content="img/hero.jpg">
 <link rel="icon" href="img/logo.png">
 <!--
   Сайт «Свет Наука» (лид 276), черновик 19.11.2026.
-  Всё, что меняется под студию: блок НАСТРОЙКИ в начале <script> (контакты, цены-ориентиры, часы).
-  ЦЕНЫ: на Картах цены символические (555–999 ₽), поэтому везде ОРИЕНТИРЫ, помечены на сайте. Уточнить у владельца.
+  Всё, что меняется под студию: блок НАСТРОЙКИ в начале <script> (контакты, цены, часы).
+  ЦЕНЫ: от владельца 20.11 (линзы от 38 000, полировка от 3 000, бронеплёнка от 8 000). Остальное «по фото».
   Цвет: синий с картинки первого экрана (её клиент уже видел), жёлтый из логотипа на звёздах и лучах.
 -->
 <style>
@@ -81,6 +81,7 @@ h2 em{font-style:normal;color:var(--acc)}
 .pill{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:999px;padding:8px 18px 8px 10px;font:500 15px var(--b);color:#dcdcd8}
 .pill .st{background:var(--sun);color:#111;border-radius:999px;padding:2px 10px;font:800 14px var(--b)}
 .hero h1{font:900 clamp(40px,5vw,82px)/.95 var(--d);letter-spacing:-.045em;margin:26px 0 22px;text-transform:uppercase}
+.hero-t{min-width:0}
 .hero h1 span,.hero h1 em{display:block;white-space:nowrap}
 .hero h1 em{font-style:normal;color:var(--acc)}
 .lead{font-size:19px;line-height:1.6;color:var(--dim);max-width:560px}
@@ -132,7 +133,7 @@ h2 em{font-style:normal;color:var(--acc)}
 }
 @media (max-width:640px){
   .hero{padding-top:26px}
-  .hero h1{font-size:clamp(36px,11vw,48px);margin:18px 0 14px}
+  .hero h1{font-size:clamp(28px,9.4vw,48px);margin:18px 0 14px}
   .pill{font-size:13px;padding:6px 14px 6px 7px}.pill .st{font-size:12.5px}
   .lead{font-size:16px}
   .calc{margin-top:20px;padding:16px 16px 18px;border-radius:22px}
@@ -199,15 +200,14 @@ h2 em{font-style:normal;color:var(--acc)}
 @media (max-width:860px){.ba{grid-template-columns:1fr}}
 
 /* ===== 4. СВЕТ НА ДОРОГЕ ===== */
-.night{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:16px;margin-top:40px}
-.night figure{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid rgba(255,255,255,.08);aspect-ratio:4/3;background:#000}
-.night figure:first-child{grid-row:span 1}
+.night{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:40px}
+.night figure{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid rgba(255,255,255,.08);aspect-ratio:3/4;background:#000}
 .night img{width:100%;height:100%;object-fit:cover;cursor:zoom-in;transition:transform .9s var(--ease)}
 .night figure:hover img{transform:scale(1.04)}
-.night figcaption{position:absolute;left:16px;bottom:14px;font:600 14px var(--b);text-shadow:0 2px 12px #000}
-@media (max-width:860px){.night{grid-template-columns:1fr 1fr}.night figure:first-child{grid-column:span 2}}
+.night figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 18px 16px;font:600 15px var(--b);background:linear-gradient(0deg,rgba(0,0,0,.75),transparent)}
+@media (max-width:860px){.night{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.night figure{border-radius:16px}.night figcaption{font-size:13px;padding:30px 12px 10px}}
 
-/* ===== 5. ЦЕНЫ: вкладки + карточки (ОРИЕНТИРЫ) ===== */
+/* ===== 5. ЦЕНЫ: вкладки + карточки ===== */
 .pl-head{text-align:center;max-width:780px;margin:0 auto 36px}
 .pl-head h2{margin:14px 0 0}
 .pl-head .num{justify-content:center}
@@ -425,7 +425,7 @@ html:not(.shade-on) .shd i{animation-play-state:paused}
   <div class="wrap">
     <a class="logo" href="#top" aria-label="Свет Наука, наверх"><img src="img/logo.png" alt="" width="46" height="46">Свет Наука</a>
     <nav aria-label="Разделы"><a href="#services">Услуги</a><a href="#works">Работы</a><a href="#prices">Цены</a><a href="#reviews">Отзывы</a><a href="#contacts">Контакты</a></nav>
-    <div class="r"><a class="ph" href="tel:+79652296342">+7 (965) 229-63-42</a><a class="btn acc" href="#book" data-book>Записаться</a></div>
+    <div class="r"><a class="ph" href="tel:+79264621002">+7 (926) 462-10-02</a><a class="btn acc" href="#book" data-book>Записаться</a></div>
   </div>
 </header>
 
@@ -437,14 +437,14 @@ html:not(.shade-on) .shd i{animation-play-state:paused}
     <div class="hero-g">
       <div class="hero-t">
         <a class="pill" href="https://yandex.ru/maps/org/98478747405/reviews/" target="_blank" rel="noopener"><span class="st">★&nbsp;4,9</span><span>93 оценки на Яндекс Картах · Щёлково</span></a>
-        <h1><span>Замена оптики</span> <em>и ремонт фар</em></h1>
-        <p class="lead">Би-лед линзы, замена ксенона на LED, ремонт и восстановление фар. Щёлково.</p>
+        <h1><span>Тюнинг и ремонт</span> <em>фар в Щёлково</em></h1>
+        <p class="lead">Если плохо светят фары, это к нам.</p>
         <div class="calc" id="calc">
-          <h3><span>Цена для вашей машины за&nbsp;30&nbsp;секунд</span> <small>ориентир</small></h3>
+          <h3><span>Цена для вашей машины за&nbsp;30&nbsp;секунд</span> <small>цены от</small></h3>
           <div class="seg" id="ftype" role="radiogroup" aria-label="Какие сейчас фары"></div>
           <div class="chips" id="fchips" aria-label="Что сделать"></div>
           <div class="tot">
-            <div><b id="ftot">≈ 28 000 ₽</b><small id="fnote">ориентир за пару фар, точную цену назовём по фото</small></div>
+            <div><b id="ftot">от 41 000 ₽</b><small id="fnote">цена от, за пару фар. Точную назовём по фото</small></div>
             <a class="btn acc" href="#book" data-book data-calc>Записаться на эту сумму →</a>
           </div>
         </div>
@@ -472,13 +472,13 @@ html:not(.shade-on) .shd i{animation-play-state:paused}
   <div class="wrap">
     <div class="num" data-rv>Услуги</div>
     <h2 data-rv>Би-лед линзы <em>и ремонт фар</em></h2>
-    <p class="sub" data-rv>Подбираем свет под машину и под то, как вы ездите. Цены ориентировочные: точную назовём по фото фары.</p>
+    <p class="sub" data-rv>Подбираем свет под машину и под то, как вы ездите. Точную цену назовём по фото фары.</p>
     <div class="svc">
-      <article class="sc" data-rv><img src="img/p019.jpg" alt="Би-лед линза в фаре" loading="lazy"><span class="svc-tag">Чаще всего</span><div class="bd"><h3>Би-лед линзы</h3><p>Ставим линзы в штатные фары. Яркий белый свет и чёткая граница, встречных не слепит.</p><div class="pr"><span>от 25 000 ₽<small>ориентир за пару</small></span><a href="#book" data-book data-msg="Здравствуйте, я с сайта. Хочу узнать цену на би-лед линзы. Машина: ">Узнать цену →</a></div></div></article>
-      <article class="sc" data-rv><img src="img/p023.jpg" alt="LED фара Mercedes после работы" loading="lazy"><div class="bd"><h3>Ксенон на LED</h3><p>Меняем уставший штатный ксенон на LED-модули. Обычно за один день.</p><div class="pr"><span>от 25 000 ₽<small>ориентир за пару</small></span><a href="#book" data-book data-msg="Здравствуйте, я с сайта. Хочу заменить ксенон на LED. Машина: ">Узнать цену →</a></div></div></article>
-      <article class="sc" data-rv><img src="img/p045.jpg" alt="Фара после замены стекла" loading="lazy"><div class="bd"><h3>Замена стёкол фар</h3><p>Треснуло или помутнело стекло? Меняем только стекло, а не фару целиком.</p><div class="pr"><span>≈ 12 000 ₽<small>за фару, со стеклом</small></span><a href="#book" data-book data-msg="Здравствуйте, я с сайта. Нужно заменить стекло фары. Машина: ">Узнать цену →</a></div></div></article>
+      <article class="sc" data-rv><img src="img/p019.jpg" alt="Би-лед линза в фаре" loading="lazy"><span class="svc-tag">Чаще всего</span><div class="bd"><h3>Би-лед линзы</h3><p>Ставим линзы в штатные фары. Яркий белый свет и чёткая граница, встречных не слепит.</p><div class="pr"><span>от 38 000 ₽<small>за пару</small></span><a href="#book" data-book data-msg="Здравствуйте, я с сайта. Хочу узнать цену на би-лед линзы. Машина: ">Узнать цену →</a></div></div></article>
+      <article class="sc" data-rv><img src="img/p023.jpg" alt="LED фара Mercedes после работы" loading="lazy"><div class="bd"><h3>Ксенон на LED</h3><p>Меняем уставший штатный ксенон на LED-модули. Обычно за один день.</p><div class="pr"><span>от 38 000 ₽<small>за пару</small></span><a href="#book" data-book data-msg="Здравствуйте, я с сайта. Хочу заменить ксенон на LED. Машина: ">Узнать цену →</a></div></div></article>
+      <article class="sc" data-rv><img src="img/p045.jpg" alt="Фара после замены стекла" loading="lazy"><div class="bd"><h3>Замена стёкол фар</h3><p>Треснуло или помутнело стекло? Меняем только стекло, а не фару целиком.</p><div class="pr"><span>по фото<small>назовём цену</small></span><a href="#book" data-book data-msg="Здравствуйте, я с сайта. Нужно заменить стекло фары. Машина: ">Узнать цену →</a></div></div></article>
       <article class="sc" data-rv><img src="img/p060.jpg" alt="Фара после ремонта" loading="lazy"><div class="bd"><h3>Ремонт фар</h3><p>Потеет, не горит, мигает, сломаны крепления. Находим причину и чиним.</p><div class="pr"><span>по фото<small>назовём цену</small></span><a href="#book" data-book data-msg="Здравствуйте, я с сайта. Нужен ремонт фары, пришлю фото. Машина: ">Прислать фото →</a></div></div></article>
-      <article class="sc" data-rv><img src="img/p107.jpg" alt="Фары после полировки" loading="lazy"><div class="bd"><h3>Полировка и бронь</h3><p>Полируем и клеим плёнку. Фары снова прозрачные и защищены от сколов.</p><div class="pr"><span>от 7 000 ₽<small>ориентир за пару</small></span><a href="#book" data-book data-msg="Здравствуйте, я с сайта. Хочу полировку и бронь фар. Машина: ">Узнать цену →</a></div></div></article>
+      <article class="sc" data-rv><img src="img/p107.jpg" alt="Фары после полировки" loading="lazy"><div class="bd"><h3>Полировка и бронь</h3><p>Полируем и клеим плёнку. Фары снова прозрачные и защищены от сколов.</p><div class="pr"><span>от 3 000 ₽<small>полировка, бронь от 8 000</small></span><a href="#book" data-book data-msg="Здравствуйте, я с сайта. Хочу полировку и бронь фар. Машина: ">Узнать цену →</a></div></div></article>
       <article class="sc" data-rv><img src="img/p070.jpg" alt="Фара праворульного автомобиля после работы" loading="lazy"><div class="bd"><h3>Евросвет и штатный LED</h3><p>Переводим праворульные фары на европейский свет и усиливаем слабый заводской LED.</p><div class="pr"><span>по фото<small>назовём цену</small></span><a href="#book" data-book data-msg="Здравствуйте, я с сайта. Нужен евросвет или улучшение штатного LED. Машина: ">Узнать цену →</a></div></div></article>
     </div>
     <p class="swipe">Листайте →</p>
@@ -514,23 +514,26 @@ html:not(.shade-on) .shd i{animation-play-state:paused}
   <div class="wrap">
     <div class="num" data-rv>Свет на дороге</div>
     <h2 data-rv>Как светят фары <em>после работы</em></h2>
-    <p class="sub" data-rv>Равномерная заливка от бампера до чёткой светотеневой границы. Снято у мастерской после установки.</p>
+    <p class="sub" data-rv>Свежие фото из нашего Telegram-канала: машины после работы и свет новых фар на дороге.</p>
     <div class="night">
-      <figure data-rv><img src="img/p030.jpg" alt="Свет фар на дороге ночью" loading="lazy" data-lb="img/p030.jpg"><figcaption>Ближний свет после установки линз</figcaption></figure>
-      <figure data-rv><img src="img/p017.jpg" alt="Свет фар на проезде ночью" loading="lazy" data-lb="img/p017.jpg"></figure>
-      <figure data-rv><img src="img/p073.jpg" alt="Свет фар на стене мастерской" loading="lazy" data-lb="img/p073.jpg"></figure>
+      <figure data-rv><img src="img/n22_8.jpg" alt="Mercedes C W204: свет новых фар на дороге ночью" loading="lazy" data-lb="img/n22_8.jpg"><figcaption>Mercedes C W204</figcaption></figure>
+      <figure data-rv><img src="img/n21_7.jpg" alt="Kia Sportage 4: свет новых фар на дороге ночью" loading="lazy" data-lb="img/n21_7.jpg"><figcaption>Kia Sportage 4</figcaption></figure>
+      <figure data-rv><img src="img/n20_6.jpg" alt="Volkswagen Touareg: свет новых фар на дороге ночью" loading="lazy" data-lb="img/n20_6.jpg"><figcaption>Volkswagen Touareg</figcaption></figure>
+      <figure data-rv><img src="img/n16_8.jpg" alt="Hyundai Santa Fe: свет новых фар на дороге ночью" loading="lazy" data-lb="img/n16_8.jpg"><figcaption>Hyundai Santa Fe</figcaption></figure>
+      <figure data-rv><img src="img/n15_3.jpg" alt="Nissan Pathfinder: свет новых фар на дороге ночью" loading="lazy" data-lb="img/n15_3.jpg"><figcaption>Nissan Pathfinder</figcaption></figure>
+      <figure data-rv><img src="img/n01_5.jpg" alt="Mercedes GLK: свет новых фар на дороге ночью" loading="lazy" data-lb="img/n01_5.jpg"><figcaption>Mercedes GLK</figcaption></figure>
     </div>
   </div>
 </section>
 
-<!-- 5. ЦЕНЫ (ориентиры) -->
+<!-- 5. ЦЕНЫ (от владельца 20.11: линзы от 38 000, полировка от 3 000, бронеплёнка от 8 000) -->
 <section id="prices" class="alt">
   <div class="wrap">
     <div class="pl-head" data-rv>
       <div class="num">Цены</div>
       <h2>Сколько <em>стоит</em></h2>
       <p>Цена зависит от модели фар и их состояния. Пришлите фото фары, и мы назовём точную сумму.</p>
-      <span class="note"><b>!</b> Цены ориентировочные, точные уточним у мастера</span>
+      <span class="note"><b>!</b> Цены от. Точную сумму назовём по фото фары</span>
       <div class="pl-ctrl"><div class="seg2" id="ptabs" role="tablist"><i aria-hidden="true"></i></div></div>
     </div>
     <div class="pcards" id="plist"></div>
@@ -559,7 +562,7 @@ html:not(.shade-on) .shd i{animation-play-state:paused}
       <p class="sub" data-rv>Занимаемся только светом и фарами. Мастер Артём сначала расспросит, где и как вы ездите, и подберёт решение по цене и качеству, без лишнего.</p>
       <div class="facts" data-rv>
         <div><b>За один день</b><span>обычно отдаём машину вечером. Сложные фары до полутора дней</span></div>
-        <div><b>Гарантия</b><span>на свою работу, о ней пишут в отзывах</span></div>
+        <div><b>Гарантия</b><span>пожизненная на работы, 2 года на светодиодные модули</span></div>
         <div><b>Стекло, а не фара</b><span>меняем только стекло, когда другие предлагают фару целиком</span></div>
         <div><b>Оплата</b><span>наличные, карта, перевод, рассрочка. Есть подарочный сертификат</span></div>
       </div>
@@ -595,7 +598,7 @@ html:not(.shade-on) .shd i{animation-play-state:paused}
       <details><summary>Не будет слепить встречных?</summary><p>Ставим би-лед линзы с чёткой светотеневой границей: свет идёт на дорогу, а не в глаза встречным.</p></details>
       <details><summary>Можно заменить только стекло, а не всю фару?</summary><p>Да. Меняем стекло, пропаиваем трещины и сколы, фара выглядит как новая. Обычно это дешевле новой фары.</p></details>
       <details><summary>Фара потеет изнутри. Это лечится?</summary><p>Да, находим, где попадает влага, и герметизируем фару.</p></details>
-      <details><summary>Есть гарантия?</summary><p>Да, на свою работу. Срок уточните у мастера при записи.</p></details>
+      <details><summary>Есть гарантия?</summary><p>Да. На работы гарантия пожизненная, на светодиодные модули 2 года.</p></details>
       <details><summary>Как оплатить?</summary><p>Наличными, картой, переводом или в рассрочку. Можно подарить подарочный сертификат.</p></details>
     </div>
   </div>
@@ -620,7 +623,7 @@ html:not(.shade-on) .shd i{animation-play-state:paused}
       </div>
       <div class="ct-list">
         <a class="ct" href="#book" data-book data-ch-direct="tg" data-rv><i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.4 4.3 2.9 11.4c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.4.8.8.8.4 0 .6-.2.9-.4l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.3-.5-1.9-1.3-1.5zM9.6 14.6l-.4 4.1-1.4-4.6 10.6-6.7-8.8 7.2z"/></svg></i><span><b>Telegram</b><small>@Svetnauka · отвечаем быстрее всего</small></span><em>→</em></a>
-        <a class="ct" href="tel:+79652296342" data-rv><i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></i><span><b>+7 (965) 229-63-42</b><small>позвонить, ежедневно 10–19</small></span><em>→</em></a>
+        <a class="ct" href="tel:+79264621002" data-rv><i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></i><span><b>+7 (926) 462-10-02</b><small>позвонить, ежедневно 10–19</small></span><em>→</em></a>
         <a class="ct" href="https://vk.ru/svetnauka" target="_blank" rel="noopener" data-rv><i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.8 18c-6 0-9.5-4.1-9.6-11h3c.1 5.1 2.4 7.2 4.1 7.7V7h2.9v4.4c1.7-.2 3.4-2.2 4-4.4h2.8a8.4 8.4 0 0 1-3.8 5.5 8.8 8.8 0 0 1 4.5 5.5h-3.1a5.5 5.5 0 0 0-4.4-4v4h-.4z"/></svg></i><span><b>ВКонтакте</b><small>работы и новости</small></span><em>→</em></a>
       </div>
     </div>
@@ -635,9 +638,9 @@ html:not(.shade-on) .shd i{animation-play-state:paused}
     <p class="sub" data-rv>Напишите марку машины и что не нравится в свете. Пришлите фото фары, назовём цену.</p>
     <div class="btns" data-rv>
       <a class="btn glow big" href="#book" data-book><span>Записаться</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="btn glow ic" href="tel:+79652296342" aria-label="Позвонить"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></a>
+      <a class="btn glow ic" href="tel:+79264621002" aria-label="Позвонить"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></a>
     </div>
-    <p class="fphone">или позвоните: <a href="tel:+79652296342">+7 (965) 229-63-42</a></p>
+    <p class="fphone">или позвоните: <a href="tel:+79264621002">+7 (926) 462-10-02</a></p>
   </div>
 </section>
 </main>
@@ -645,11 +648,11 @@ html:not(.shade-on) .shd i{animation-play-state:paused}
 <footer>
   <div class="wrap">
     <span>© Свет Наука, мастерская автосвета · Щёлково, ул. Мелиораторов, 21С1</span>
-    <nav><a href="https://t.me/Svetnauka" target="_blank" rel="noopener">Telegram</a><a href="https://vk.ru/svetnauka" target="_blank" rel="noopener">ВКонтакте</a><a href="tel:+79652296342">+7 (965) 229-63-42</a></nav>
+    <nav><a href="https://t.me/Svetnauka" target="_blank" rel="noopener">Telegram</a><a href="https://vk.ru/svetnauka" target="_blank" rel="noopener">ВКонтакте</a><a href="tel:+79264621002">+7 (926) 462-10-02</a></nav>
   </div>
 </footer>
 
-<div class="mbar" id="mbar"><a class="btn acc" href="#book" data-book>Записаться в Telegram</a><a class="btn gh" href="tel:+79652296342" aria-label="Позвонить"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></a></div>
+<div class="mbar" id="mbar"><a class="btn acc" href="#book" data-book>Записаться в Telegram</a><a class="btn gh" href="tel:+79264621002" aria-label="Позвонить"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></a></div>
 
 <!-- ЛАЙТБОКС -->
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Фото"><img id="lbImg" alt=""><button class="x" type="button" aria-label="Закрыть">×</button><button class="pv" type="button" aria-label="Назад">‹</button><button class="nx" type="button" aria-label="Вперёд">›</button></div>
@@ -678,25 +681,24 @@ html:not(.shade-on) .shd i{animation-play-state:paused}
 document.documentElement.classList.add('js');
 
 /* ===================== НАСТРОЙКИ ===================== */
-const BOOK={tg:'Svetnauka',phone:'+79652296342',phoneText:'+7 (965) 229-63-42',hours:'Ежедневно 10:00–19:00'};
+const BOOK={tg:'Svetnauka',phone:'+79264621002',phoneText:'+7 (926) 462-10-02',hours:'Ежедневно 10:00–19:00'};
 const DEF='Здравствуйте, я с сайта. Хочу записаться. Машина: ';
-/* ОРИЕНТИРЫ (на Картах цен нет, есть только символические 555–999 ₽). Уточнить у владельца!
-   Замена стекла 12 000 за фару: из отзыва (стекло 5 000 + работа 7 000, Nissan Qashqai). */
+/* ЦЕНЫ от владельца 20.11. Где цены нет (ремонт, стекло, евросвет) = «по фото». */
 /* Калькулятор: тип фар меняет главную услугу (первая кнопка). 0 = цена по фото, в сумму не входит */
-const FTYPE=[ // [тип фар, главная услуга для него, ориентир за пару]
-  ['Галоген','Би-лед линзы',25000],['Ксенон','Ксенон на LED',25000],['Штатный LED','Улучшение LED',0]];
+const FTYPE=[ // [тип фар, главная услуга для него, цена от (от владельца 20.11: установка линз от 38 000)]
+  ['Галоген','Би-лед линзы',38000],['Ксенон','Ксенон на LED',38000],['Штатный LED','Улучшение LED',38000]];
 const CALC=[ // [ключ, название, цена за пару]; ключ main = главная услуга по типу фар
-  ['main','',0],['rep','Ремонт фар',5000],['pol','Полировка фар',3000],['bron','Бронь плёнкой',4000]];
+  ['main','',0],['pol','Полировка фар',3000],['bron','Бронеплёнка',8000],['rep','Ремонт фар',0]];
 /* Прайс: [название, цена (0 = по фото), подпись к цене, вкладка, пояснение] */
 const SVC=[
-  ['Би-лед линзы',25000,'за пару','Свет','Линзы в штатные фары: яркий белый свет и чёткая граница.'],
-  ['Ксенон на LED',25000,'за пару','Свет','Замена уставшего штатного ксенона на LED-модули.'],
-  ['Улучшение штатного LED',0,'','Свет','Заводского LED не хватает? Подберём линзы, чтобы светило ярче.'],
+  ['Би-лед линзы',38000,'за пару','Свет','Линзы в штатные фары: яркий белый свет и чёткая граница.'],
+  ['Ксенон на LED',38000,'за пару','Свет','Замена уставшего штатного ксенона на LED-модули.'],
+  ['Улучшение штатного LED',38000,'за пару','Свет','Заводского LED не хватает? Подберём линзы, чтобы светило ярче.'],
   ['Евросвет',0,'','Свет','Перевод праворульных фар на европейский свет.'],
-  ['Замена стекла фары',12000,'за фару, со стеклом','Фары','Меняем только стекло, пропаиваем трещины и сколы.'],
-  ['Ремонт и герметизация',5000,'за фару','Фары','Фара потеет, мигает или не горит. Находим причину и чиним.'],
+  ['Замена стекла фары',0,'','Фары','Меняем только стекло, пропаиваем трещины и сколы.'],
+  ['Ремонт и герметизация',0,'','Фары','Фара потеет, мигает или не горит. Находим причину и чиним.'],
   ['Полировка фар',3000,'за пару','Фары','Убираем муть и желтизну, фары снова прозрачные.'],
-  ['Бронь плёнкой',4000,'за пару','Фары','Полиуретановая плёнка защищает фары от сколов и реагентов.']];
+  ['Бронеплёнка',8000,'за пару','Фары','Полиуретановая плёнка защищает фары от сколов и реагентов.']];
 const HIT='Би-лед линзы';
 /* Галерея: только чистые фото результата (без людей и мусора) */
 const GAL=['001','006','007','010','011','013','024','047','048','055','114','036','061','118','033','064','018','005','045','023'];
@@ -733,9 +735,9 @@ function drawCalc(){const T=FTYPE[ftype];
   [...fc.children].forEach((b,i)=>{const on=sel.has(rows[i][0]);b.textContent=rows[i][1];b.classList.toggle('on',on);b.setAttribute('aria-pressed',on)});
   const list=rows.filter(c=>sel.has(c[0])),sum=list.reduce((s,c)=>s+c[2],0),byPhoto=list.filter(c=>!c[2]);
   const lc=s=>s[0].toLowerCase()+s.slice(1);
-  ftot.textContent=!list.length?'Выберите услугу':sum?'≈ '+fmt(sum)+' ₽'+(byPhoto.length?' + по фото':''):'По фото';
-  fnote.textContent=!list.length?'можно выбрать несколько':(byPhoto.length?byPhoto.map(c=>lc(c[1])).join(', ')+(sum?': цену назовём по фото, остальное ориентир за пару':': цену назовём по фото фары'):'ориентир за пару фар, точную цену назовём по фото');
-  calcMsg=list.length?`Здравствуйте, я с сайта. Фары сейчас: ${lc(T[0])}. Хочу узнать цену: ${list.map(c=>lc(c[1])).join(', ')}.${sum?` На сайте ориентир ≈ ${fmt(sum)} ₽${byPhoto.length?' плюс '+byPhoto.map(c=>lc(c[1])).join(', ')+' по фото':''}.`:''} Машина: `:DEF}
+  ftot.textContent=!list.length?'Выберите услугу':sum?'от '+fmt(sum)+' ₽'+(byPhoto.length?' + по фото':''):'По фото';
+  fnote.textContent=!list.length?'можно выбрать несколько':(byPhoto.length?byPhoto.map(c=>lc(c[1])).join(', ')+(sum?': цену назовём по фото, остальное цена от, за пару':': цену назовём по фото фары'):'цена от, за пару фар. Точную назовём по фото');
+  calcMsg=list.length?`Здравствуйте, я с сайта. Фары сейчас: ${lc(T[0])}. Хочу узнать цену: ${list.map(c=>lc(c[1])).join(', ')}.${sum?` На сайте от ${fmt(sum)} ₽${byPhoto.length?' плюс '+byPhoto.map(c=>lc(c[1])).join(', ')+' по фото':''}.`:''} Машина: `:DEF}
 drawCalc();
 
 /* ===== Прайс: вкладки ===== */
@@ -743,7 +745,7 @@ const GR=[...new Set(SVC.map(s=>s[3]))],pl=document.getElementById('plist'),pt=d
 function moveInd(){const b=pt.querySelector('button.on');if(b){pind.style.width=b.offsetWidth+'px';pind.style.transform=`translateX(${b.offsetLeft-4}px)`}}
 function card(s,i){const hit=s[0]===HIT,p=s[1];
   return `<div class="pc${hit?' hit':''}" style="--i:${i}"><div class="pc-top"><b>${s[0]}</b>${hit?'<span class="pc-badge">Чаще всего</span>':''}</div><p>${s[4]}</p>`+
-  (p?`<div class="pc-price"><small>${s[0]==='Замена стекла фары'?'≈':'от'}</small><strong>${fmt(p)} ₽</strong></div><div class="pc-o">${s[2]} · ориентир</div><a class="btn ${hit?'acc':'gh'}" href="#book" data-book data-msg="Здравствуйте, я с сайта. Хочу узнать цену: ${s[0].toLowerCase()}. Машина: ">Узнать точную цену</a>`
+  (p?`<div class="pc-price"><small>от</small><strong>${fmt(p)} ₽</strong></div><div class="pc-o">${s[2]}</div><a class="btn ${hit?'acc':'gh'}" href="#book" data-book data-msg="Здравствуйте, я с сайта. Хочу узнать цену: ${s[0].toLowerCase()}. Машина: ">Узнать точную цену</a>`
     :`<div class="pc-price"><strong>По фото</strong></div><div class="pc-o">назовём цену в чате</div><a class="btn gh" href="#book" data-book data-msg="Здравствуйте, я с сайта. Пришлю фото фар, подскажите цену. Услуга: ${s[0].toLowerCase()}. Машина: " data-sub="Пришлите фото фары в чат, назовём цену.">Прислать фото</a>`)+'</div>'}
 function showGr(g,anim){gr=g;[...pt.querySelectorAll('button')].forEach(b=>{const on=b.textContent===g;b.classList.toggle('on',on);b.setAttribute('aria-selected',on)});moveInd();
   const draw=()=>{pl.innerHTML=SVC.filter(s=>s[3]===g).map(card).join('');pl.classList.remove('out')};
