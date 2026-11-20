@@ -466,7 +466,7 @@ html:not(.shade-on) .shd i{animation-play-state:paused}
           <div class="seg" id="ftype" role="radiogroup" aria-label="Какие сейчас фары"></div>
           <div class="chips" id="fchips" aria-label="Что сделать"></div>
           <div class="tot">
-            <div><b id="ftot">от 41 000 ₽</b><small id="fnote">цена от, за пару фар. Точную назовём по фото</small></div>
+            <div><b id="ftot">от 38 000 ₽</b><small id="fnote">цена от, за пару фар. Точную назовём по фото</small></div>
             <a class="btn acc" href="#book" data-book data-calc>Записаться на эту сумму →</a>
           </div>
         </div>
@@ -759,7 +759,7 @@ bk.querySelector('[data-ch=tg]').addEventListener('click',()=>{if(navigator.clip
 /* ===== Калькулятор первого экрана ===== */
 const ft=document.getElementById('ftype'),fc=document.getElementById('fchips'),ftot=document.getElementById('ftot');
 const fnote=document.getElementById('fnote');
-let ftype=1,sel=new Set(['main','pol']);
+let ftype=1,sel=new Set(['main']); // по умолчанию только линзы: от 38 000
 FTYPE.forEach((t,i)=>{const b=document.createElement('button');b.type='button';b.textContent=t[0];b.setAttribute('role','radio');b.onclick=()=>{ftype=i;drawCalc()};ft.appendChild(b)});
 CALC.forEach(([k])=>{const b=document.createElement('button');b.type='button';b.dataset.k=k;b.onclick=()=>{sel.has(k)?sel.delete(k):sel.add(k);drawCalc()};fc.appendChild(b)});
 function drawCalc(){const T=FTYPE[ftype];
